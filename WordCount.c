@@ -35,12 +35,12 @@ int main(int argc, char **argv) {
     }
 
     // Count lines
+    fseek(fp, 0L, SEEK_SET);    
     if (bytes_num != 0) { 
         lines_num = 1;
-        fseek(fp, 0L, SEEK_SET);    
-        while (fscanf(fp, "\n", word) == 1) { 
-            lines_num++;
-        }
+        for (char c = getc(fp); c != EOF; c = getc(fp))
+            if (c == '\n')
+                lines_num++;
     }
     
     if (strcmp(option, "") == 0)
