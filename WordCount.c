@@ -11,9 +11,10 @@ int main(int argc, char **argv) {
     char *file_name, *option = "";
     if (argc == 2)
         file_name = argv[1];
-    else
+    else {
         option = argv[1];
         file_name = argv[2];
+    }
 
     FILE *fp = fopen(file_name, "r");
     if (fp == NULL) {         
